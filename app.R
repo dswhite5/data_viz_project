@@ -5,10 +5,12 @@ library(tidyverse)
 indicators <- read_csv('C:/Users/sethh/OneDrive/Documents/CIS 671/Semester Project/data/Indicators.csv')
 
 #user interface
-ui <- fluidPage(
-  
-
-)
+ui <- navbarPage("Title of the page",
+                 tabPanel("Panel Title",
+                          fluidPage(titlePanel(h1("This is a title")))
+                          )
+                 
+                 )
 
 
 # server logic
