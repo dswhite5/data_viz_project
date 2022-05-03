@@ -1,0 +1,25 @@
+CountryName,Decade,Percent Change Co2 by Decade,Percent Change GDP by Decade,gdp
+China,60-70,-19.434,19.236,GDP Per Capita
+China,70-80,58.574,52.715,GDP Per Capita
+China,80-90,44.973,110.656,GDP Per Capita
+China,90-00,24.411,142.589,GDP Per Capita
+China,00-11,148.819,179.338,GDP Per Capita
+Indonesia,60-70,27.951,14.297,GDP Per Capita
+Indonesia,70-80,106.009,66.043,GDP Per Capita
+Indonesia,80-90,28.272,50.845,GDP Per Capita
+Indonesia,90-00,51.059,29.672,GDP Per Capita
+Indonesia,00-11,85.007,52.783,GDP Per Capita
+"Korea, Rep.",60-70,232.417,77.805,GDP Per Capita
+"Korea, Rep.",70-80,112.065,99.493,GDP Per Capita
+"Korea, Rep.",80-90,62.831,124.903,GDP Per Capita
+"Korea, Rep.",90-00,65.283,71.731,GDP Per Capita
+"Korea, Rep.",00-11,24.366,50.925,GDP Per Capita
+Singapore,70-80,48.344,104.539,GDP Per Capita
+Singapore,80-90,18.303,66.642,GDP Per Capita
+Singapore,90-00,-21.023,50.549,GDP Per Capita
+Singapore,00-11,-64.492,45.073,GDP Per Capita
+Thailand,60-70,207.449,62.752,GDP Per Capita
+Thailand,70-80,103.187,51.083,GDP Per Capita
+Thailand,80-90,99.963,78.296,GDP Per Capita
+Thailand,90-00,77.388,38.756,GDP Per Capita
+Thailand,00-11,50.929,47.962,GDP Per Capita

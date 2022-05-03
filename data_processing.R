@@ -50,6 +50,7 @@ indicators_GDP_change <- indicators_project%>%
   arrange(desc(`Percent Change in GDP`))%>% #arrange from high to low
   head(10) #select top 10 values
 
+write_csv(indicators_GDP_change, "indicators_GDP_change.csv")
 
 #top ten countries by percent change in population for graph
 indicators_pop_change <- indicators_project%>%
@@ -61,12 +62,14 @@ indicators_pop_change <- indicators_project%>%
   arrange(desc(`Percent Change in Pop`))%>% #arrange from high to low
   head(10)#select top 10 values
 
+write_csv(indicators_pop_change, "indicators_pop_change.csv")
+
 
 ##############################################################
 ##############################################################
 ## Data processing for task 2
 
-#top 5 countries by percent change in GDP(actaul countries selected)
+#top 5 countries by percent change in GDP(actual countries selected)
 top_5_GDP <- indicators_project%>%
   filter(Year == 1960 | Year == 2011)%>% #filters out years except 1960 and 2011
   filter(CountryName %in% countries_1960_2011)%>% #filters out countries that dont have data for 1960 and 2011
@@ -97,6 +100,8 @@ indicators_co2_by_year<- indicators_project%>%
   select(c(CountryName,`CO2 emissions (metric tons per capita)`,`Year`))%>% #select only Co2 emissions and year columns
   filter(CountryName %in% countries_used)%>%
   arrange(CountryName)
+
+write_csv(indicators_co2_by_year, "indicators_co2_by_year.csv")
 
 
 ###########################################################
@@ -204,6 +209,9 @@ co2_pop<-percent_change_Co2%>%
          `Percent Change Population by Decade` <200)%>% #this removes outliers as identified in chart, drastically changes slope
   mutate(pop = 'Total Population')
   
+write_csv(co2_GDP, "co2_GDP.csv")
+write_csv(co2_pop, "co2_pop.csv")
+
   
 #fit linear models to pop and GDP comparisons to Co2 
 

@@ -5,6 +5,9 @@
 #library(cowplot)
 library(patchwork)
 
+indicators_GDP_change<-read_csv("indicators_GDP_change.csv")
+indicators_pop_change<-read_csv("indicators_pop_change.csv")
+
 #plot for task 1
 p1<-indicators_GDP_change%>%
   mutate(CountryName = fct_reorder(CountryName, desc(`Percent Change in GDP`)))%>% #this is so countries show up order from highest to lowest on chart
@@ -65,6 +68,8 @@ task1<-p1/p2
 ################################################################
 # this is the line chart for task 2
 
+indicators_co2_by_year<-read_csv("indicators_co2_by_year.csv")
+
 # I didnt like how scale color brewer pallettes were looking on graph 
 #colors() shows list of available named colors
 line_colors = c('lightblue', 'pink', 'green', 'black', 'orange', 'purple', 'blue', 'yellow3', 'grey', 'brown' )
@@ -93,7 +98,43 @@ task2<-indicators_co2_by_year%>%
 ############################################################
 ###########################################################
 # this is the scatter plot for task 3
+
+co2_GDP<-read_csv("co2_GDP.csv")
+co2_pop<-read_csv("co2_pop.csv")
+
 colors <- c('gdp' = 'blue', 'pop' = 'green')
+
+#fit linear models to pop and GDP comparisons to Co2, might add in later
+
+# gdp_fit<-lm(`Percent Change Co2 by Decade`~`Percent Change GDP by Decade`, data = co2_GDP)
+# 
+# pop_fit<-lm(`Percent Change Co2 by Decade`~`Percent Change Population by Decade`, data = co2_pop)
+
+#didnt end up using formula on chart, wanted only visualization, not text, to accomplish task.
+#create string of formulas to print on chart
+#started with actual formula(this is commented out), moved to just listing slope of line
+# formula_gdp = paste('Co2 = ',
+#                     as.character(round(gdp_fit$coefficients[2],3)),
+#                     'x%GDP + ',as.character(round(gdp_fit$coefficients[1],3)),
+#                     sep = '')
+# 
+# formula_pop = paste('Co2 = ',
+#                     as.character(round(pop_fit$coefficients[2],3)),
+#                     'x%Pop - ',as.character(round(abs(pop_fit$coefficients[1]),3)),
+#                     sep = '')
+
+#slope of line for each variable
+# formula_gdp = paste('Slope of GDP line  = ',
+#                     as.character(round(gdp_fit$coefficients[2],3)),
+#                     sep = '')
+# 
+# formula_pop = paste('Slope of Population line = ',
+#                     as.character(round(pop_fit$coefficients[2],3)),
+#                     sep = '')
+
+
+
+
 
 task3<-co2_GDP%>%
   ggplot()+
