@@ -12,7 +12,7 @@ library(tidyverse)
 
 
 #read in data
-indicators <- read_csv('C:/Users/sethh/OneDrive/Documents/CIS 671/Semester Project/data/Indicators.csv')
+indicators <- read_csv('Indicators.csv')
 
 #edit indicators data set
 indicators_project <- indicators%>%

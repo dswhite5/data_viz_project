@@ -1,9 +1,9 @@
 #data Viz project
 #shiny app
-#library(shiny)
-#library(tidyverse)
+library(shiny)
+library(tidyverse)
 
-#source("Data and Visualization Exploration.R")
+source("Data and Visualization Exploration.R")
 
 #user interface
 ui <- navbarPage("Data Visualization Strategies",
@@ -121,8 +121,8 @@ ui <- navbarPage("Data Visualization Strategies",
                           fluidPage(titlePanel(h1("Tasks to Accomplish")),
                                     mainPanel(h1('Overview of project goal'),
                                               p('The goal for this project is to investigate whether population growth or economic growth has a greater effect on green house gas emissions for a particular 
-                                                country. To investigate this the variables total population is used for population growth, GDP per capita is used to model ecomnomic growth, and Co2 emissions
-                                                are used to model green house gas. First we have to identify which countries to use in the study, then overall trend forthose countries are looked at, lastly
+                                                country. To investigate this the variable total population is used for population growth, GDP per capita is used to model ecomnomic growth, and Co2 emissions
+                                                are used to model green house gas. First we have to identify which countries to use in the study, then overall trend for those countries are looked at, lastly
                                                 the relationships that population and GDP for each country chosen have with Co2 emissions are compared to see which has the greater effect'),
                                               h2("Task 1"),
                                               p("Identify the 5 countries with greatest percent change in GDP per Capita from 1960 to 2011 and identify the 5 countries with greatest percent
@@ -140,13 +140,55 @@ ui <- navbarPage("Data Visualization Strategies",
                  ),
 ##################panel for graphs page################################################################################################################
                  tabPanel("Graphs",
-                          fluidPage(titlePanel(h1("This Page shows graphs")),
-                                    mainPanel(h3("Pargraph goes here"),
+                          fluidPage(titlePanel(h1("Visualization for Each Task")),
+                                    mainPanel(h3("Design Decsions and Visual Encodings for Each Task"),
                                               h3("Task 1"),
+                                              p("The goal of Task 1 is to identify 10 different levels of the variable CountryName to use in the project. The variable levels will be chosen based on the value of
+                                                the two quantitative variables 'percent Change in Population' and 'Percent Change in GDP'. Task 1 will be accomplished using two bar charts with the visual encodings
+                                                of color and length to express differences in quantitative variables for different levels of a categorical variable. Length is the second most accurate visual
+                                                encoding according to Clevland's Rules and the length of each bar identifies the percent change in the quantitative variable for each graph. The bars are grouped 
+                                                from tallest to shortest in an application of the Gestalt Law of similarity where similar items are considered to be in a group. Position is the most accurate visual
+                                                encoding for interpreting categorical data and the different levels of the categorical variable will be shown with different horizontal positions. According to 
+                                                Cleveland's Rules color is the second most accurate for interpreting categorical variables. So color will be used to differentiate the quantitative variables, as 
+                                                this is similar to two levels of a categorical variable. Color will also be used to highlight which 5 levels of the categorical variable have the highest values of
+                                                each quantitative variable. Colors for the bar chart will be blue for one of the quantitative variables and green for the other. Different shades of blue and green
+                                                will be used to differentiate between the categorical levels with high and low values. The Gestalt law of isomorphic correspondence says that people interpret things
+                                                based on past experiences or established conventions. Blue and green do not have other connotations associated with them, such as red being associated with danger,
+                                                that might fit the Law of Isomorphic Correspondence. The Gestalt Law of Focal point says that items that are different create a focal point. While blue and green 
+                                                are distinguishable from one another, they are also close enough that one variable wont be so distinct as to be viewed as the focal point. The Different shades of
+                                                green and blue used to highlight the categorical levels follow this same idea. The 5 highest for percent change in GDP are China, The Republic of Korea, Singapore, 
+                                                Thailand, and Indonesia. The top 5 for Percent Change in Population are Cote d\"Ivoire, Kenya, Niger, Sudan and the Democratic Republic of Congo."),
                                               plotOutput("task1"),
                                               h3("Task 2"),
+                                              p('The Goal of Task 2 is to show trends in Co2 Emissions per capita for the years 1960 to 2011 for the 10 levels of CountryName identified in Task 1. This will be
+                                                accomplished with a line chart with visual encodings of position, lines, and shape to identify differences in the quantitative variable Co2 Emissions, position will
+                                                identify differences in the quantitative variable year, and color will be used to express differences in the categorical variable CountryName. Position is listed, 
+                                                according to Cleveland\'s rules, as the most accurately interpreted visual encoding. Vertical position will be used to express different values for Co2 Emissions 
+                                                and horizontal position will be used to express different values for Year. Color is listed as the second most accurate visual encoding for interpreting categorical
+                                                values according to Cleveland\'s rules and will be used to to interpret differences in the levels of the categorical variable CountryName. A categorical Color scale
+                                                will be used as it is more accurate for interpreting categorical variables than a continuous color scale. Red will not be used as one of the colors to avoid
+                                                assumptions implied by the Gestalt law of focal point and the Gestalt law of isomorphic correspondence.  Red will also be omitted due to the use of the color 
+                                                green as one of the colors. Red/Green color blindness is the most common form of color blindness. Trends present in the graph are a clear increase over time for The 
+                                                Republic of Korea, China, Thailand, and Indonesia. Singapore\'s Increases dramatically till around the year 2000 and then decreases steadily. The countries of
+                                                Cote d"Ivoire, Kenya, Sudan, Niger, and the Democratic Republic of Congo appear to have steady levels of Co2 emissions, at least compared to those of the other
+                                                countries listed.'),
                                               plotOutput("task2"),
                                               h3("Task 3"),
+                                              p("The goal of task 3 is to identify whether GDP per Capita or Population has a greater effect on Co2 emissions per capita. This will be accomplished with a scatter plot
+                                                 comparing the percent changes in Co2 Emissions for each decade for the 10 countries identified in task 1 with the percent changes in GPD and population for each 
+                                                 decade from 1960 to 2011 for the 5 countries in each category. Position will be used to interpret changes in the three quantitative variables, Percent change in 
+                                                 Co2 emissions per capita, Percent Changes in GPD Per Capita and Percent changes in Population. Color will identify whether a point is Percent change in GDP or
+                                                 Population and Color will used for fitted linear models based on the scatter plot of each quantitative variable. Angle will be used to determine relative 
+                                                 differences in the slopes of the lines for each linear model to determine which variable has a greater effect on Co2 Emissions. Position is the easiest to 
+                                                 interpret encoding for quantitative variables according to Cleveland's rules and so it will be used for Percent Change in Co2 Emission and Percent change in GDP or
+                                                Population. Angle is the third easiest to interpret visual encoding for quantitative data and will be used to determine the relative differences in the slopes for the
+                                                linear models for Percent Change in Co2 vs Percent Change in GDP and Percent Change in Co2 vs Percent Change in Population. Color will be used to differentiate whether
+                                                a point is comparing Percent Change in Co2 Emissions with Percent Change in GDP or Percent Change in Co2 Emissions with Percent Change inPopulation. Percent changes
+                                                in GDP will be blue and Percent changes in Population will be green as applications of the gestalt law of focal point and gestalt law of similarity as explained in
+                                                task 1. The trend lines will be the same color as the variable associated with the linear model as an application of the gestalt lawof similarity. The Variable Percent
+                                                Change in Population appears to have a greater impact on Percent Change in Co2 Emissions per Capita. The line for population hasa steeper angle for its upward slope
+                                                implying that is has greater effect on Co2 emissions. A steeper upward slope means that for a one percent increase in Population there is a greater increase in Co2
+                                                Emissions than for a one percent increase in GDP"),
                                               plotOutput("task3")
                                     )
                           )
